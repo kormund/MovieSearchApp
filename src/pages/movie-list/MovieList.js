@@ -9,7 +9,7 @@ export default class MovieList extends Component {
   state = { error: null, isLoaded: false, items: [], totalPages: null }
 
   componentDidMount() {
-    new MovieDb().getMovies('poke').then(
+    new MovieDb().getMovies('return').then(
       (body) => {
         body.total_pages = undefined
         this.setState({
