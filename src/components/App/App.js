@@ -26,10 +26,11 @@ export default class App extends Component {
       children: 'Rated content',
     },
   ]
+
   render() {
     return (
       <>
-        <Tabs defaultActiveKey="1" items={this.tabs} onChange={this.onChange} centered />
+        <Tabs className="main" defaultActiveKey="1" items={this.tabs} onChange={this.onChange} centered />
       </>
     )
   }

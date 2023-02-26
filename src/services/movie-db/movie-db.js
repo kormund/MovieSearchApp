@@ -14,6 +14,6 @@ export default class MovieDb {
   }
 
   getPoster(url) {
-    return this._baseImgUrl + url
+    return url !== null ? this._baseImgUrl + url : ''
   }
 }
