@@ -43,13 +43,18 @@ class Search extends React.Component {
       },
     )
   }
+
+  createGuestSession = () => {
+    let expireTime = localStorage.getItem('expires')
+    expireTime < Date.now() ? this.movieDB.createGuest() : null
+  }
   onSearchInput = (e) => {
-    this.setState({ isLoaded: false })
+    this.setState({ isLoaded: false, page: 1 })
     let query = e.target.value
     if (query) {
       this.getMovies(query, this.state.page)
     } else {
-      this.getMovies(this.state.query)
+      this.getMovies('return', 1)
     }
   }
 
@@ -59,6 +64,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
+    this.createGuestSession()
     this.getGenres()
     this.getMovies('return')
   }
