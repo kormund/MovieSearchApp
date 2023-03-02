@@ -4,8 +4,6 @@ export default class MovieDb {
   _baseImgUrl = 'https://image.tmdb.org/t/p/w500'
 
   async getMovies(name, page = 1) {
-    console.log(name)
-    console.log(page)
     let res = await fetch(`${this._baseUrl}&language=en-US&query=${name}&page=${page}&include_adult=false`)
     if (res.ok) {
       res = await res.json()

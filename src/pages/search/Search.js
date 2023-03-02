@@ -10,9 +10,9 @@ class Search extends React.Component {
   state = { error: null, isLoaded: false, items: [], totalPages: null, genres: [], page: 1, query: 'return' }
 
   movieDB = new MovieDb()
-  getMovies = (value) => {
+  getMovies = (value, page) => {
     this.setState({ query: value })
-    this.movieDB.getMovies(value, this.state.page).then(
+    this.movieDB.getMovies(value, page).then(
       (body) => {
         this.setState({
           isLoaded: true,
@@ -33,13 +33,11 @@ class Search extends React.Component {
     this.movieDB.getGenres().then(
       (body) => {
         this.setState({
-          genresLoaded: true,
           genres: body,
         })
       },
       (err) => {
         this.setState({
-          genresLoaded: true,
           error: err,
         })
       },
