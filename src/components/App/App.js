@@ -1,7 +1,8 @@
 import { Component } from 'react'
 import { Tabs } from 'antd'
 
-import MovieList from '../../pages/movie-list/MovieList'
+import Search from '../../pages/search/Search'
+
 import './App.css'
 
 export default class App extends Component {
@@ -18,7 +19,7 @@ export default class App extends Component {
     {
       key: '1',
       label: 'Search',
-      children: <MovieList getPages={this.getPages} />,
+      children: <Search getPages={this.getPages} />,
     },
     {
       key: '2',

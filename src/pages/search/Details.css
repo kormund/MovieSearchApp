@@ -1,0 +1,39 @@
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details__title {
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 7px;
+  margin-top: 12px;
+  width: 190px;
+}
+
+.details__date {
+  font-size: 12px;
+  line-height: 22px;
+  color: #827e7e;
+}
+
+.details__desc {
+  height: 90px;
+  width: 230px;
+  font-size: 12px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.details__rating {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 12px;
+  right: 9px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}

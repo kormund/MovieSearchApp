@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.movie_card {
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  width: 460px;
+  box-shadow: 5px 5px 5px #f7f7f7;
+}
+
+.movie_card__details {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.movie_card__wrapper {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  row-gap: 30px;
+  flex-wrap: wrap;
+}
