@@ -2,37 +2,52 @@ import { Component } from 'react'
 import { Tabs } from 'antd'
 
 import Search from '../../pages/search/Search'
-
+import Rated from '../../pages/rated/Rated'
+import Genres from '../Genres/Genres'
 import './App.css'
+import MovieDb from '../../services/movie-db/movie-db'
 
 export default class App extends Component {
-  onChange = (key) => {
-    console.log(key)
-  }
-
-  getPages = (pages) => {
-    this.setState({
-      pages,
-    })
+  state = {
+    genres: [],
   }
   tabs = [
     {
       key: '1',
       label: 'Search',
-      children: <Search getPages={this.getPages} />,
+      children: <Search />,
     },
     {
       key: '2',
       label: 'Rated',
-      children: 'Rated content',
+      children: <Rated />,
     },
   ]
+  movieDB = new MovieDb()
+  getGenres = () => {
+    this.movieDB.getGenres().then(
+      (body) => {
+        this.setState({
+          genres: body.genres,
+        })
+      },
+      (err) => {
+        this.setState({
+          error: err,
+        })
+      }
+    )
+  }
+
+  componentDidMount() {
+    this.getGenres()
+  }
 
   render() {
     return (
-      <>
-        <Tabs className="main" defaultActiveKey="1" items={this.tabs} onChange={this.onChange} centered />
-      </>
+      <Genres.Provider value={this.state.genres}>
+        <Tabs className="main" defaultActiveKey="1" items={this.tabs} centered destroyInactiveTabPane />
+      </Genres.Provider>
     )
   }
 }

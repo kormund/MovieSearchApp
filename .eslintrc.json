@@ -38,6 +38,10 @@
     "import"
   ],
   "rules": {
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
     "indent": [
       "error",
       2,

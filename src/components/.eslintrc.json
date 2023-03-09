@@ -28,7 +28,7 @@
   ],
   "plugins": ["react", "prettier", "import"],
   "rules": {
-    "comma-dangle": [2, "always-multiline"],
+    "comma-dangle": "off",
     "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
