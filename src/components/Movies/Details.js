@@ -2,25 +2,13 @@ import React from 'react'
 import { Rate, Space, Tag } from 'antd'
 
 import MovieDb from '../../services/movie-db/movie-db'
+import ratingColor from '../../assets/ratingColor'
 
 import ReleaseDate from './ReleaseDate'
 
 import './Details.css'
 
 const Details = ({ title, desc, tags, rating, date, id, userRating }) => {
-  const ratingColor = (value) => {
-    switch (true) {
-      case value < 3:
-        return '#E90000'
-      case value > 3 && value < 5:
-        return '#E97E00'
-      case value > 5 && value < 7:
-        return '#E9D100'
-      case value > 7:
-        return '#66E900'
-    }
-  }
-
   const handleMovieRate = (value) => {
     let movieDB = new MovieDb()
     let token = localStorage.getItem('guestSessionID')
